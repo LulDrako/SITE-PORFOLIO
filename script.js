@@ -26,7 +26,7 @@ tabs.forEach(tab => {
             const projectToShow = document.getElementById(this.dataset.project);
             projectToShow.classList.add('active');
             
-            // Center the selected tab
+            // Center+ the selected tab
             tabsContainer.classList.add('centered');
             tabs.forEach(item => {
                 if (!item.classList.contains('active')) {
