@@ -60,3 +60,32 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(skill);
     });
 });
+
+// Sélectionne les éléments de la modale
+var modal = document.getElementById("imageModal");
+var modalImg = document.getElementById("modalImage");
+var closeModal = document.getElementsByClassName("close")[0];
+
+// Ouvre la modale lorsque l'image est cliquée
+document.querySelectorAll('.project-screenshot').forEach(img => {
+    img.onclick = function(){
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+        document.body.classList.add("modal-open"); // Ajoute la classe pour désactiver le défilement
+    }
+});
+
+// Ferme la modale lorsque l'utilisateur clique sur le bouton 'X'
+closeModal.onclick = function() {
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open"); // Retire la classe pour réactiver le défilement
+}
+
+// Ferme la modale lorsque l'utilisateur clique à l'extérieur de l'image
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open"); // Retire la classe pour réactiver le défilement
+    }
+}
+
